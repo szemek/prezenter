@@ -18,7 +18,7 @@ group :doc do
 end
 
 gem 'haml'
-gem 'mongoid', '4.0.0', :git => 'git@github.com:mongoid/mongoid.git'
+gem 'mongoid', '4.0.0', :github => 'mongoid/mongoid'
 gem 'thin'
 
 group :development, :test do
