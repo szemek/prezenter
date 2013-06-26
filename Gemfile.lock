@@ -1,3 +1,13 @@
+GIT
+  remote: git@github.com:mongoid/mongoid.git
+  revision: 06b708d37cdebdc50b69614e9ff84dd953993a12
+  specs:
+    mongoid (4.0.0)
+      activemodel (~> 4.0.0)
+      moped (~> 1.4)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.22)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,7 +74,9 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     minitest (4.7.5)
+    moped (1.5.0)
     multi_json (1.7.7)
+    origin (1.1.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -142,6 +154,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  mongoid (= 4.0.0)!
   pry
   pry-rails
   rails (= 4.0.0)
