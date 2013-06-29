@@ -1,13 +1,13 @@
 #wrapper
   #content
     %h1= @presentation.name
-    %form{action: "/presentation/#{@presentation.id}/update", method: "post"}
+    = form_for @presentation do |f|
       .tabs
         %a.active{href: "#haml"} Haml
         %a{href: "#css"} CSS
       .areas
-        %textarea#haml.active{name: "haml"}= @presentation.haml
-        %textarea#css.hidden{name: "css"}= @presentation.css
+        = f.text_area :haml, id: 'haml', class: 'active'
+        = f.text_area :css, id: 'css', class: 'hidden'
       .button-group
-        %input.button{type: "submit", value: "Update"}
+        = f.submit 'Update', class: 'button'
         = link_to 'Back to list', root_path, :class => 'button secondary'
