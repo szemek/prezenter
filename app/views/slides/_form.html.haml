@@ -1,0 +1,28 @@
+= form_for @slide do |f|
+  - if @slide.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@slide.errors.count, "error")} prohibited this slide from being saved:"
+      %ul
+        - @slide.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :html
+    = f.text_area :html
+  .field
+    = f.label :css
+    = f.text_area :css
+  .field
+    = f.label :haml
+    = f.text_area :haml
+  .field
+    = f.label :sass
+    = f.text_area :sass
+  .actions
+    = f.submit 'Save'
