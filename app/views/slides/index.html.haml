@@ -1,0 +1,29 @@
+%h1 Listing slides
+
+%table
+  %tr
+    %th Name
+    %th Username
+    %th Html
+    %th Css
+    %th Haml
+    %th Sass
+    %th
+    %th
+    %th
+
+  - @slides.each do |slide|
+    %tr
+      %td= slide.name
+      %td= slide.username
+      %td= slide.html
+      %td= slide.css
+      %td= slide.haml
+      %td= slide.sass
+      %td= link_to 'Show', slide
+      %td= link_to 'Edit', edit_slide_path(slide)
+      %td= link_to 'Destroy', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Slides', new_slide_path

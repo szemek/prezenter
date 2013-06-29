@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @slide.name
+%p
+  %b Username:
+  = @slide.username
+%p
+  %b Html:
+  = @slide.html
+%p
+  %b Css:
+  = @slide.css
+%p
+  %b Haml:
+  = @slide.haml
+%p
+  %b Sass:
+  = @slide.sass
+
+= link_to 'Edit', edit_slide_path(@slide)
+\|
+= link_to 'Back', slides_index_path
