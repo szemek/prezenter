@@ -1,5 +1,5 @@
 class SlidesController < ApplicationController
-  before_action :set_slide, only: [:show, :edit, :update, :destroy]
+  before_action :set_slides, only: [:show, :edit, :update, :destroy]
 
   # GET /slides
   # GET /slides.json
@@ -14,7 +14,7 @@ class SlidesController < ApplicationController
 
   # GET /slides/new
   def new
-    @slide = Slides.new
+    @slides = Slides.new
   end
 
   # GET /slides/1/edit
@@ -24,15 +24,15 @@ class SlidesController < ApplicationController
   # POST /slides
   # POST /slides.json
   def create
-    @slide = Slides.new(slide_params)
+    @slides = Slides.new(slide_params)
 
     respond_to do |format|
-      if @slide.save
-        format.html { redirect_to @slide, notice: 'Slides was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @slide }
+      if @slides.save
+        format.html { redirect_to @slides, notice: 'Slides was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @slides }
       else
         format.html { render action: 'new' }
-        format.json { render json: @slide.errors, status: :unprocessable_entity }
+        format.json { render json: @slides.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class SlidesController < ApplicationController
   # PATCH/PUT /slides/1.json
   def update
     respond_to do |format|
-      if @slide.update(slide_params)
-        format.html { redirect_to @slide, notice: 'Slides was successfully updated.' }
+      if @slides.update(slide_params)
+        format.html { redirect_to @slides, notice: 'Slides was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @slide.errors, status: :unprocessable_entity }
+        format.json { render json: @slides.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class SlidesController < ApplicationController
   # DELETE /slides/1
   # DELETE /slides/1.json
   def destroy
-    @slide.destroy
+    @slides.destroy
     respond_to do |format|
       format.html { redirect_to slides_index_url }
       format.json { head :no_content }
@@ -63,12 +63,12 @@ class SlidesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_slide
-      @slide = Slides.find(params[:id])
+    def set_slides
+      @slides = Slides.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
-      params.require(:slide).permit(:name, :username, :html, :css, :haml, :sass)
+      params.require(:slides).permit(:name, :username, :html, :css, :haml, :sass)
     end
 end
