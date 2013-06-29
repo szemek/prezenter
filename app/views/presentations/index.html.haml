@@ -1,0 +1,23 @@
+#wrapper
+  #content
+    %h1 Presentations
+
+    = form_for :presentation, url: '/presentations', method: 'POST' do |f|
+      = f.label :name
+      = f.text_field :name
+      %input{type: 'submit', value: 'Create'}
+
+    %ul.presentations
+      - @presentations.each do |presentation|
+        %li.span4
+          .thumbnail
+            %h3 #{presentation.name} by #{presentation.username}
+          %ul.button-group
+            %li.quarter
+              %a.button{href: "/presentations/#{presentation.id}/prezent"} Prezent
+            %li.quarter
+              %a.button.success{href: "/presentations/#{presentation.id}/view"} View
+            %li.quarter
+              = link_to 'Edit', edit_presentation_path(presentation), class: 'button secondary'
+            %li.quarter
+              = link_to 'Remove', presentation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button alert'
