@@ -1,7 +1,13 @@
-%h1 Editing slide
-
-= render 'form'
-
-= link_to 'Show', @slide
-\|
-= link_to 'Back', slides_index_path
+#wrapper
+  #content
+    %h1= @slides.name
+    %form{action: "/slides/#{@slides.id}/update", method: "post"}
+      .tabs
+        %a.active{href: "#haml"} Haml
+        %a{href: "#css"} CSS
+      .areas
+        %textarea#haml.active{name: "haml"}= @slides.haml
+        %textarea#css.hidden{name: "css"}= @slides.css
+      .button-group
+        %input.button{type: "submit", value: "Update"}
+        %a.button.secondary{href: "/slides"} Back to list
