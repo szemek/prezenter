@@ -22,6 +22,7 @@ gem 'haml-rails'
 gem 'mongoid', '4.0.0', :github => 'mongoid/mongoid'
 gem 'thin'
 gem 'devise', '3.0.0.rc', :github => 'plataformatec/devise'
+gem 'underscore-rails', '~> 1.4.4'
 
 group :development, :test do
   gem 'pry'
