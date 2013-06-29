@@ -1,6 +1,9 @@
 Prezenter::Application.routes.draw do
   root 'presentations#index'
-  resources :presentations
+  resources :presentations do
+    get '/prezent' => 'prezenter#prezent', on: :member
+    get '/view' => 'prezenter#view', on: :member
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
