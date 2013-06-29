@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+section {
+  position: fixed;
+  background: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.top {
+  z-index: 1000;
+}
