@@ -18,6 +18,7 @@ group :doc do
 end
 
 gem 'haml'
+gem 'haml-rails'
 gem 'mongoid', '4.0.0', :github => 'mongoid/mongoid'
 gem 'thin'
 gem 'devise', '3.0.0.rc', :github => 'plataformatec/devise'
