@@ -1,29 +1,24 @@
-%h1 Listing slides
+#wrapper
+  #content
+    %h1 Presentations
 
-%table
-  %tr
-    %th Name
-    %th Username
-    %th Html
-    %th Css
-    %th Haml
-    %th Sass
-    %th
-    %th
-    %th
+    %form.new{action: '/slides/create', method: 'post'}
+      %label{for: 'name'} Name
+      %input{type: 'text', name: 'name'}
+      %input{type: 'submit', value: 'Create'}
 
-  - @slides.each do |slide|
-    %tr
-      %td= slide.name
-      %td= slide.username
-      %td= slide.html
-      %td= slide.css
-      %td= slide.haml
-      %td= slide.sass
-      %td= link_to 'Show', slide
-      %td= link_to 'Edit', edit_slide_path(slide)
-      %td= link_to 'Destroy', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Slides', new_slide_path
+    %ul.presentations
+      - @slides.each do |slides|
+        %li.span4
+          .thumbnail
+            %h3 #{slides.name} by #{slides.username}
+          %ul.button-group
+            %li.quarter
+              %a.button{href: "/slides/#{slides.id}/prezent"} Prezent
+            %li.quarter
+              %a.button.success{href: "/slides/#{slides.id}/view"} View
+            %li.quarter
+              %a.button.secondary{href: "/slides/#{slides.id}/edit"} Edit
+            %li.quarter
+              %form.remove{action: "/slides/#{slides.id}/remove", method: "post"}
+                %input.button.alert{type: "submit", value: "Remove"}
