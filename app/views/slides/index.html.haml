@@ -2,9 +2,9 @@
   #content
     %h1 Presentations
 
-    %form.new{action: '/slides/create', method: 'post'}
-      %label{for: 'name'} Name
-      %input{type: 'text', name: 'name'}
+    = form_for :slides, url: '/slides', method: 'POST' do |f|
+      = f.label :name
+      = f.text_field :name
       %input{type: 'submit', value: 'Create'}
 
     %ul.presentations
@@ -20,5 +20,4 @@
             %li.quarter
               %a.button.secondary{href: "/slides/#{slides.id}/edit"} Edit
             %li.quarter
-              %form.remove{action: "/slides/#{slides.id}/remove", method: "post"}
-                %input.button.alert{type: "submit", value: "Remove"}
+              = link_to 'Remove', slides, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'button alert'

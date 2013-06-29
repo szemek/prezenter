@@ -25,10 +25,11 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @slides = Slides.new(slide_params)
+    @slides.login = current_user.login
 
     respond_to do |format|
       if @slides.save
-        format.html { redirect_to @slides, notice: 'Slides was successfully created.' }
+        format.html { redirect_to edit_slid@slides, notice: 'Slides was successfully created.' }
         format.json { render action: 'show', status: :created, location: @slides }
       else
         format.html { render action: 'new' }
@@ -56,7 +57,7 @@ class SlidesController < ApplicationController
   def destroy
     @slides.destroy
     respond_to do |format|
-      format.html { redirect_to slides_index_url }
+      format.html { redirect_to slides_path }
       format.json { head :no_content }
     end
   end
