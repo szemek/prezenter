@@ -1,15 +1,8 @@
 class PresentationsController < ApplicationController
-  before_action :set_presentation, only: [:show, :edit, :update, :destroy]
+  before_action :set_presentation, only: [:edit, :update, :destroy]
 
   def index
     @presentations = Presentation.all
-  end
-
-  def show
-  end
-
-  def new
-    @presentation = Presentation.new
   end
 
   def edit
