@@ -1,5 +1,6 @@
 class PresentationsController < ApplicationController
   before_action :set_presentation, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def index
     @presentations = Presentation.all
