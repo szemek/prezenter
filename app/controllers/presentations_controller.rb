@@ -27,11 +27,9 @@ class PresentationsController < ApplicationController
   def update
     respond_to do |format|
       if @presentation.update_attributes(presentation_params)
-        puts "First"
         format.html { redirect_to edit_presentation_path(@presentation), notice: 'Presentation was successfully updated.' }
         format.json { head :no_content }
       else
-        puts "Second"
         format.html { render action: 'edit' }
         format.json { render json: @presentation.errors, status: :unprocessable_entity }
       end
