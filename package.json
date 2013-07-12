@@ -1,0 +1,15 @@
+{
+  "name": "prezenter",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.2.1",
+    "socket.io": "0.9.14",
+    "connect": "2.7.7",
+    "mongoose": "3.6.8",
+    "jade": "0.30.0"
+  },
+  "engines": {
+    "node": "0.8.*",
+    "npm": "1.1.*"
+  }
+}

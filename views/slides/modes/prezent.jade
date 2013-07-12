@@ -1,0 +1,10 @@
+doctype 5
+html
+  head
+    title Prezenter
+    link(href="/css/slides.css", type="text/css", rel="stylesheet")
+    style!= slides.css
+    script(src="/socket.io/socket.io.js", type="text/javascript")
+    script(src="/js/prezenter.js")
+  body
+    div#wrapper(data-mode="prezenter")!= slides.html

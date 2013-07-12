@@ -1,0 +1,29 @@
+extends ../layouts/main
+
+block append content
+  #wrapper
+    #content
+      h1 Presentations
+
+      form.new(action="/slides/create", method="post")
+        label(for="name") Name
+        input(type="text", name="name")
+        input(type="submit", value="Create")
+
+      ul.presentations
+        - slides.forEach(function(slides) {
+          li.span4
+            .thumbnail
+              h3 #{slides.name} by #{slides.username}
+            ul.button-group
+              li.quarter
+                a.button(href="/slides/#{slides.id}/prezent") Prezent
+              li.quarter
+                a.button.success(href="/slides/#{slides.id}/view") View
+              li.quarter
+                a.button.secondary(href="/slides/#{slides.id}/edit") Edit
+              li.quarter
+                form.remove(action="/slides/#{slides.id}/remove", method="post")
+                  input.button.alert(type="submit", value="Remove")
+        - })
+

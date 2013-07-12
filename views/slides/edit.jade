@@ -1,0 +1,36 @@
+extends ../layouts/main
+
+block append content
+  #wrapper
+    #content
+      h1= slides.name
+      form(action="/slides/#{slides.id}/update", method="post")
+        .tabs
+          a.active(href="#jade") Jade
+          a(href="#css") CSS
+        .areas
+          textarea#jade.active(name="jade")= slides.jade
+          textarea#css.hidden(name="css")= slides.css
+        .button-group
+          input.button(type="submit", value="Update")
+          a.button.secondary(href="/slides") Back to list
+  script
+    var tabs = document.querySelectorAll('a[href^="#"]');
+    var textareas = document.querySelectorAll('textarea');
+
+    for(var i=0; i<tabs.length; i++) {
+      tabs[i].addEventListener('click', function(event) {
+        for(var j=0; j<tabs.length; j++) {
+          tabs[j].className = "";
+        }
+        this.className = "active";
+        var href = this.getAttribute('href');
+
+        for(var k=0; k<textareas.length; k++) {
+          textareas[k].className = "hidden";
+        }
+        document.querySelector(href).className = "active";
+
+        event.preventDefault();
+      });
+    }

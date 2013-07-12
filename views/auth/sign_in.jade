@@ -1,0 +1,18 @@
+extends ../layouts/auth
+
+block title
+  title Prezenter | Sign in
+
+block content
+  #wrapper
+    #content
+      h2 Sign in
+      form(action="/sign_in", method="post")
+        fieldset
+          label(for="username") Username
+          input#username(type="text", name="username", autofocus="autofocus")
+        fieldset
+          label(for="password") Password
+          input#password(type="password", name="password")
+        input(type="submit", value="Sign in")
+

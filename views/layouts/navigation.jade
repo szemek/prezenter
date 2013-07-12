@@ -1,0 +1,18 @@
+nav.top-bar
+  ul.menu
+    li
+      - if(user) {
+        a= user.username
+      - }
+    li
+      - if(user) {
+        a(href="/sign_out") Sign out
+      - }
+    li
+      - if(!user) {
+        a(href="/sign_in") Sign in
+      - }
+    li
+      - if(!user) {
+        a(href="/sign_up") Sign up
+      - }
