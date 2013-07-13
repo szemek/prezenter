@@ -36,10 +36,7 @@ end
 
 WebsocketRails::EventMap.describe do
   namespace :sync do
-    subscribe :client_connected,    to: SyncController, with_method: :client_connected
-    subscribe :change_slide,        to: SyncController, with_method: :change_slide
-    subscribe :update_slide,        to: SyncController, with_method: :update_slide
-    subscribe :client_disconnected, to: SyncController, with_method: :client_disconnected
+    subscribe :change, to: SyncController, with_method: :change
   end
   # You can use this file to map incoming events to controller actions.
   # One event can be mapped to any number of controller actions. The
