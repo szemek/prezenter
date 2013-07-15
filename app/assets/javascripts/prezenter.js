@@ -96,8 +96,10 @@ $(document).ready(function(){
       if(mode === 'viewer') {
         var sync = new EventSource('/sync/update');
         sync.onmessage = function(message) {
-          if(Prezenter.viewer.passive) {
-            window.location.hash = message.data;
+          if(message.data != null && message.data != "") {
+            if(Prezenter.viewer.passive) {
+              window.location.hash = message.data;
+            }
           }
         };
       }
