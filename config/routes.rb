@@ -5,6 +5,9 @@ Prezenter::Application.routes.draw do
     get '/view' => 'prezenter#view', on: :member
   end
 
+  post '/sync/change' => 'sync#change'
+  get '/sync/update' => 'sync#update'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

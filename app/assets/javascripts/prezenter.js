@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     // notify
     Prezenter.notify.viewers = function(hash) {
-      socket.trigger('sync.change', hash);
+      $.post('/sync/change', {hash: hash});
     }
 
     // update
@@ -57,8 +57,6 @@ $(document).ready(function(){
         window.location.hash = sections[index].dataset.id;
       }
     };
-
-    var socket = new WebSocketRails(location.host + '/websocket');
 
     window.addEventListener('load', function() {
       Prezenter.initialize.sections();
@@ -95,11 +93,14 @@ $(document).ready(function(){
       });
 
       // Viewer mode
-      socket.bind('update', function(hash) {
-        if(mode === 'viewer' && Prezenter.viewer.passive) {
-          window.location.hash = hash;
-        }
-      });
+      if(mode === 'viewer') {
+        var sync = new EventSource('/sync/update');
+        sync.onmessage = function(message) {
+          if(Prezenter.viewer.passive) {
+            window.location.hash = message.data;
+          }
+        };
+      }
     });
   });
 });
