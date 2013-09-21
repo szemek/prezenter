@@ -12,17 +12,11 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'rails_12factor', group: :production
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
-gem 'haml'
 gem 'haml-rails'
 gem 'mongoid', '4.0.0', :github => 'mongoid/mongoid'
 gem 'thin'
 gem 'devise', '>= 3.0.0'
-gem 'underscore-rails', '~> 1.4.4'
+gem 'underscore-rails', '>= 1.4.4'
 
 group :development, :test do
   gem 'pry'
