@@ -10,15 +10,11 @@
     %ul.presentations
       - @presentations.each do |presentation|
         %li.span4
-          .thumbnail
+          .box
             %h3 #{presentation.name} by #{presentation.username}
-          %ul.button-group
-            %li.quarter
-              %a.button.success{href: "/presentations/#{presentation.id}/view"} View
+          .actions.btn-group
+            = link_to 'View', "/presentations/#{presentation.id}/view", class: 'btn btn-success quarter'
             - if current_user && current_user.login == presentation.username
-              %li.quarter
-                %a.button{href: "/presentations/#{presentation.id}/prezent"} Prezent
-              %li.quarter
-                = link_to 'Edit', edit_presentation_path(presentation), class: 'button secondary'
-              %li.quarter
-                = link_to 'Remove', presentation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button alert'
+              = link_to 'Prezent', "/presentations/#{presentation.id}/prezent", class: 'btn btn-primary quarter'
+              = link_to 'Edit', edit_presentation_path(presentation), class: 'btn btn-warning quarter'
+              = link_to 'Remove', presentation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger quarter'
