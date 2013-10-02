@@ -57,24 +57,12 @@ textarea {
   display: none;
 }
 
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #aaa;
-}
-
-.top-bar ul {
+.navbar ul {
   float: right;
 }
 
-.top-bar li {
+.navbar li {
   display: inline-block;
-}
-
-.top-bar li a {
-  margin: auto 10px;
 }
 
 ul {
