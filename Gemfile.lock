@@ -8,6 +8,13 @@ GIT
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
 
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: c0e12a90ba3e44ab68d3f153411fba3edc400b2a
+  specs:
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -168,6 +175,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  bootstrap-sass!
   coffee-rails (~> 4.0.0)
   devise (>= 3.0.0)
   haml-rails
