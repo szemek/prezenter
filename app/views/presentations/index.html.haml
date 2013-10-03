@@ -1,11 +1,9 @@
 #wrapper
   #content
-    %h1 Presentations
-
-    = form_for :presentation, url: '/presentations', method: 'POST' do |f|
-      = f.label :name
-      = f.text_field :name
-      %input{type: 'submit', value: 'Create'}
+    .new-presentation-form
+      = form_for :presentation, url: '/presentations', method: 'POST' do |f|
+        = f.text_field :name, placeholder: 'Name for presentation'
+        %input{type: 'submit', value: 'Create'}
 
     %ul.presentations
       - @presentations.each do |presentation|

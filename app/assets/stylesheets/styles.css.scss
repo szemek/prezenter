@@ -10,6 +10,10 @@ h1, h2, h3 {
   font-family: Lato, Helvetica, sans-serif;
 }
 
+.navbar-brand {
+  font-size: 2em;
+}
+
 #content {
   width: 960px;
   margin: 0 auto;
@@ -70,6 +74,10 @@ ul {
   list-style: none;
 }
 
+.new-presentation-form {
+  margin-bottom: 20px;
+}
+
 .presentations li {
   float: left;
   margin-right: 20px;
@@ -83,12 +91,12 @@ ul {
 .presentations .box {
   height: 200px;
   width: 300px;
-  background: #aaa;
+  background: #c6d9f5;
   position: relative;
 }
 
 .presentations .box h3 {
-  background: #777;
+  background: #6a91d6;
   bottom: 0;
   margin: 0;
   position: absolute;
