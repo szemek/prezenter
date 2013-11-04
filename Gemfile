@@ -18,6 +18,7 @@ gem 'thin'
 gem 'devise', '>= 3.0.0'
 gem 'underscore-rails', '>= 1.4.4'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'websocket-rails', '~> 0.6.2'
 
 group :development, :test do
   gem 'pry'
