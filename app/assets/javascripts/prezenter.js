@@ -1,4 +1,10 @@
 $(document).ready(function(){
+  var socket = new WebSocketRails(location.host + '/websocket');
+  socket.bind('connected', function(object){
+    console.log(object.message);
+  });
+  socket.trigger('sync.connected');
+
   $("[data-mode='viewer'], [data-mode='prezenter']").each(function(){
     var index = 0;
     var sections = null;
@@ -12,6 +18,7 @@ $(document).ready(function(){
       }
     };
 
+
     // initialize
     Prezenter.initialize.sections = function() {
       sections = document.querySelectorAll('section');
@@ -22,7 +29,7 @@ $(document).ready(function(){
 
     // notify
     Prezenter.notify.viewers = function(hash) {
-      $.post('/sync/change', {hash: hash});
+      socket.trigger('sync.change', hash)
     }
 
     // update
@@ -94,14 +101,13 @@ $(document).ready(function(){
 
       // Viewer mode
       if(mode === 'viewer') {
-        var sync = new EventSource('/sync/update');
-        sync.onmessage = function(message) {
-          if(message.data != null && message.data != "") {
+        socket.bind('update', function(message) {
+          if(message != null && message != "") {
             if(Prezenter.viewer.passive) {
-              window.location.hash = message.data;
+              window.location.hash = message;
             }
           }
-        };
+        });
       }
     });
   });
