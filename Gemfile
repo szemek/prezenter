@@ -28,4 +28,5 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec'
   gem 'awesome_print'
+  gem 'colored'
 end
