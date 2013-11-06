@@ -1,18 +1,17 @@
-#wrapper
-  #content
-    .new-presentation-form
-      = form_for :presentation, url: '/presentations', method: 'POST' do |f|
-        = f.text_field :name, placeholder: 'Name for presentation'
-        %input{type: 'submit', value: 'Create'}
+.new-presentation-form
+  = form_for :presentation, url: '/presentations', method: 'POST' do |f|
+    = f.text_field :name, placeholder: 'Name for presentation'
+    %input{type: 'submit', value: 'Create'}
 
-    %ul.presentations
-      - @presentations.each do |presentation|
-        %li.span4
-          .box
-            %h3 #{presentation.name} by #{presentation.username}
-          .actions.btn-group
-            = link_to 'View', "/presentations/#{presentation.id}/view", class: 'btn btn-success quarter'
-            - if current_user && current_user.login == presentation.username
-              = link_to 'Prezent', "/presentations/#{presentation.id}/prezent", class: 'btn btn-primary quarter'
-              = link_to 'Edit', edit_presentation_path(presentation), class: 'btn btn-warning quarter'
-              = link_to 'Remove', presentation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger quarter'
+.presentations
+  %ul
+    - @presentations.each do |presentation|
+      %li.span4
+        .box
+          %h3 #{presentation.name} by #{presentation.username}
+        .actions.btn-group
+          = link_to 'View', "/presentations/#{presentation.id}/view", class: 'btn btn-success quarter'
+          - if current_user && current_user.login == presentation.username
+            = link_to 'Prezent', "/presentations/#{presentation.id}/prezent", class: 'btn btn-primary quarter'
+            = link_to 'Edit', edit_presentation_path(presentation), class: 'btn btn-warning quarter'
+            = link_to 'Remove', presentation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger quarter'
