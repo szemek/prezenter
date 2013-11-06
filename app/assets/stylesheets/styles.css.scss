@@ -26,6 +26,22 @@ fieldset {
   border: none;
 }
 
+.login-form {
+  label {
+    width: 80px;
+  }
+}
+
+.signup-form {
+  label {
+    width: 140px;
+  }
+}
+
+.action {
+  margin: 10px 0;
+}
+
 .tabs {
   list-style: none;
   display: inline;

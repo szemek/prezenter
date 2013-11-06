@@ -8,9 +8,9 @@
           %li
             %a= current_user.login
           %li
-            = link_to 'Sign out', destroy_user_session_path, :method => :delete
+            = link_to 'Wyloguj', destroy_user_session_path, :method => :delete
         - else
           %li
-            = link_to 'Sign in', new_user_session_path
+            = link_to 'Zaloguj', new_user_session_path
           %li
-            = link_to 'Sign up', new_user_registration_path
+            = link_to 'Zarejestruj', new_user_registration_path

@@ -1,0 +1,21 @@
+%h2 Zaloguj
+
+.login-form
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .field
+      = f.label :login, 'Login'
+      = f.text_field :login, :autofocus => true
+
+    .field
+      = f.label :password, 'Hasło'
+      = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+
+    .action
+      = f.submit 'Zaloguj', class: 'btn btn-primary'
+
+= render "devise/shared/links"
