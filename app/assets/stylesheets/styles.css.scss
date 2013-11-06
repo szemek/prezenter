@@ -14,10 +14,10 @@ h1, h2, h3 {
   font-size: 2em;
 }
 
-#content {
-  width: 960px;
+.wrapper {
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 75px;
+  width: 960px;
 }
 
 fieldset {
