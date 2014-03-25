@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.1'
 
 gem 'rails', '~> 4.0.0'
 
@@ -13,11 +13,11 @@ gem 'jbuilder', '~> 1.2'
 gem 'rails_12factor', group: :production
 
 gem 'haml-rails'
-gem 'mongoid', '4.0.0', :github => 'mongoid/mongoid'
+gem 'mongoid', github: 'mongoid/mongoid'
 gem 'thin'
 gem 'devise', '>= 3.0.0'
 gem 'underscore-rails', '>= 1.4.4'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.1.0'
 gem 'websocket-rails', '~> 0.6.2'
 gem 'dotenv-rails'
 
