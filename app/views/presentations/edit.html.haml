@@ -8,6 +8,6 @@
       .areas
         = f.text_area :haml, id: 'haml', class: 'active'
         = f.text_area :css, id: 'css', class: 'hidden'
-      .button-group
-        = f.submit 'Update', class: 'button'
-        = link_to 'Back to list', root_path, :class => 'button secondary'
+      .btn-group
+        = f.submit 'Zapisz', class: 'btn btn-primary'
+        = link_to 'Wróć do prezentacji', root_path, class: 'btn btn-default'
