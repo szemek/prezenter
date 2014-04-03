@@ -1,7 +1,8 @@
 .new-presentation-form
-  = form_for :presentation, url: '/presentations', method: 'POST' do |f|
-    = f.text_field :name, placeholder: 'Name for presentation'
-    %input{type: 'submit', value: 'Create'}
+  = form_for Presentation.new, html: {class: 'form-inline'} do |f|
+    .form-group
+      = f.text_field :name, placeholder: 'Nazwa prezentacji', class: 'form-control'
+    %input.btn.btn-default{type: 'submit', value: 'Utwórz'}
 
 .presentations
   %ul
