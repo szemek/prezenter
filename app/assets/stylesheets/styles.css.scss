@@ -131,10 +131,12 @@ ul {
   width: 25%;
 }
 
-.btn-group > .btn:first-child {
-  border-top-left-radius: 0;
-}
+.presentations {
+  .btn-group > .btn:first-child {
+    border-top-left-radius: 0;
+  }
 
-.btn-group > .btn:last-child {
-  border-top-right-radius: 0;
+  .btn-group > .btn:last-child {
+    border-top-right-radius: 0;
+  }
 }
