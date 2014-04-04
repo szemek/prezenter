@@ -13,8 +13,9 @@ function Prezenter(socket, mode){
 
   self.notify = function() {
     if(self.mode === 'prezenter') {
+      var channel = utils.channel();
       var hash = window.location.hash;
-      self.socket.trigger('sync.change', hash)
+      self.socket.trigger('sync.change', JSON.stringify({channel: channel, hash: hash}));
     }
   };
 
@@ -57,12 +58,24 @@ function Prezenter(socket, mode){
     if(self.mode === 'viewer'){
       self.socket.bind('update', function(message) {
         if(message != null && message != "") {
-          window.location.hash = message;
+          var parsed = JSON.parse(message);
+          if(parsed.channel == utils.channel()) {
+            window.location.hash = parsed.hash;
+          }
         }
       });
     }
   };
+
 }
+
+var utils = {
+  channel: function() {
+    var parts =_.compact(location.pathname.split("/"));
+    var id = parts[1];
+    return id;
+  }
+};
 
 $(document).ready(function(){
   var socket = new WebSocketRails(location.host + '/websocket');
