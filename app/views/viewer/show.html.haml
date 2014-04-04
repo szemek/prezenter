@@ -1,4 +1,8 @@
 - content_for :css do
   = @presentation.css
 
-#wrapper{'data-mode' => 'viewer'}= raw Haml::Engine.new(@presentation.haml).render
+#wrapper{'data-mode' => 'viewer'}
+  = raw Haml::Engine.new(@presentation.haml).render
+
+.navigation
+  = render 'viewer/navigation'
