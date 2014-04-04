@@ -4,7 +4,7 @@ Prezenter::Application.routes.draw do
   root 'presentations#index'
 
   resources :presentations do
-    get '/prezent' => 'prezenter#prezent', on: :member
-    get '/view' => 'prezenter#view', on: :member
+    get '/prezent' => 'prezenter#show', on: :member
+    get '/view' => 'viewer#show', on: :member
   end
 end
