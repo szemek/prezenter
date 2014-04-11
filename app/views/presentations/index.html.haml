@@ -11,8 +11,8 @@
         .box
           %h3 #{presentation.name} by #{presentation.username}
         .actions.btn-group
-          = link_to 'Zobacz', "/presentations/#{presentation.id}/view", class: 'btn btn-success quarter'
+          = link_to 'Zobacz', view_presentation_path(presentation), class: 'btn btn-success quarter'
           - if current_user && current_user.login == presentation.username
-            = link_to 'Prezentuj', "/presentations/#{presentation.id}/prezent", class: 'btn btn-primary quarter'
+            = link_to 'Prezentuj', prezent_presentation_path(presentation), class: 'btn btn-primary quarter'
             = link_to 'Edytuj', edit_presentation_path(presentation), class: 'btn btn-warning quarter'
             = link_to 'Usuń', presentation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger quarter'
