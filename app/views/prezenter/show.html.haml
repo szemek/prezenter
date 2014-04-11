@@ -1,4 +1,9 @@
 - content_for :css do
   = @presentation.css
 
-#wrapper{'data-mode' => 'prezenter'}= raw Haml::Engine.new(@presentation.haml).render
+#wrapper{'data-mode' => 'prezenter'}
+  = raw Haml::Engine.new(@presentation.haml).render
+
+.navigation
+  .menu
+    = link_to fa_icon('home 4x'), root_path
