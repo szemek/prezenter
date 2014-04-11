@@ -35,7 +35,9 @@ function Prezenter(socket, mode){
     var sections = $('section');
     var Key = {
       LEFT: 37,
-      RIGHT: 39
+      RIGHT: 39,
+      HOME: 36,
+      END: 35
     };
 
     var key = event.keyCode;
@@ -44,6 +46,8 @@ function Prezenter(socket, mode){
 
     if(key === Key.LEFT) { position = Math.max(position-1, 0); }
     else if(key === Key.RIGHT) { position = Math.min(position+1, sections.length-1); }
+    else if(key == Key.HOME) { position = 0; }
+    else if(key == Key.END) { position = sections.length-1; }
 
     window.location.hash = position;
   };
