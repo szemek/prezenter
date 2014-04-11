@@ -15,6 +15,7 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', '~> 3.1.1.0'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'carrierwave-mongoid', '~> 0.7.1'
 gem 'devise', '>= 3.0.0'
 gem 'dotenv-rails'
 gem 'haml-rails'
