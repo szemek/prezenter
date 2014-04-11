@@ -5,4 +5,6 @@
   = raw Haml::Engine.new(@presentation.haml).render
 
 .navigation
-  = render 'viewer/navigation'
+  .menu
+    = link_to fa_icon('home 4x'), root_path
+    = fa_icon 'eye 4x'
