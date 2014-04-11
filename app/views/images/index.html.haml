@@ -1,0 +1,18 @@
+%h1 Obrazki
+
+= form_for @image do |f|
+  .field
+    = f.label :raw
+    = f.file_field :raw
+  .actions
+    = f.submit 'Dodaj', class: 'btn btn-primary'
+
+.images
+  - @images.each do |image|
+    %hr
+    .image
+      %p= image.raw
+      = image_tag image.raw
+      = link_to 'Usuń', image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
