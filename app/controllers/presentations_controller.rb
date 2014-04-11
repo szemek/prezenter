@@ -5,7 +5,7 @@ class PresentationsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def index
-    @presentations = Presentation.all
+    @presentations = Presentation.order(:updated_at.desc)
 
     respond_with(@presentations)
   end
