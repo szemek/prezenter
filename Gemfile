@@ -23,6 +23,7 @@ gem 'thin'
 gem 'underscore-rails', '>= 1.4.4'
 gem 'websocket-rails', '~> 0.6.2'
 gem 'font-awesome-rails', '~> 4.0.3.1'
+gem 'mongoid_slug', '~> 3.2.1'
 
 group :development, :test do
   gem 'awesome_print'
