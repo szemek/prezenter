@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Prezenter
+    %title= yield(:title) || "Prezenter"
     = favicon_link_tag
     = stylesheet_link_tag    "application", media: "all"
     %style= yield :css
