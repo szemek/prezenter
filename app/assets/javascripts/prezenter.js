@@ -61,6 +61,8 @@ function Prezenter(socket, mode){
   self.listen = function(){
     if(self.mode === 'viewer'){
       self.socket.bind('update', function(message) {
+        if($('.fa-eye-slash').length > 0) { return; }
+
         if(message != null && message != "") {
           var parsed = JSON.parse(message);
           if(parsed.channel == utils.channel()) {
