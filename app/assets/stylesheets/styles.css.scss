@@ -105,19 +105,26 @@ ul {
 }
 
 .presentations .box {
-  height: 200px;
+  height: 100px;
   width: 300px;
   background: #c6d9f5;
   position: relative;
-}
 
-.presentations .box h3 {
-  background: #6a91d6;
-  bottom: 0;
-  margin: 0;
-  position: absolute;
-  width: 100%;
-  padding: 10px 5px;
+  h3 {
+    margin: 0;
+    padding: 10px 5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  h4 {
+    bottom: 0;
+    color: #888;
+    padding: 0 5px;
+    position: absolute;
+    right: 0;
+  }
 }
 
 .actions {
