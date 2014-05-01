@@ -9,7 +9,8 @@
     - @presentations.each do |presentation|
       %li.span4
         .box
-          %h3 #{presentation.name} by #{presentation.username}
+          %h3 #{presentation.name}
+          %h4 #{presentation.username}
         .actions.btn-group
           = link_to 'Zobacz', view_presentation_path(presentation), class: 'btn btn-success quarter'
           - if current_user && current_user.login == presentation.username
