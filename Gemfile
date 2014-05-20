@@ -33,5 +33,6 @@ group :development, :test do
   gem 'colored'
   gem 'pry'
   gem 'pry-rails'
+  gem 'quiet_assets'
   gem 'rspec'
 end
