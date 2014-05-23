@@ -1,13 +1,17 @@
 class PresentationsController < ApplicationController
-  respond_to :html
+  respond_to :html, :json
 
-  before_action :set_presentation, only: [:edit, :update, :destroy]
+  before_action :set_presentation, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def index
     @presentations = Presentation.order(:updated_at.desc)
 
     respond_with(@presentations)
+  end
+
+  def show
+    respond_with(@presentation)
   end
 
   def edit
