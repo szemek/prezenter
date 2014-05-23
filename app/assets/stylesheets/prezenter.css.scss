@@ -29,3 +29,22 @@ section {
     padding: 10px 20px;
   }
 }
+
+.info {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1;
+
+  #progress, #clock {
+    height: 50%;
+
+    .bar {
+      height: 100%;
+      background: black;
+      width: 0;
+    }
+  }
+}
