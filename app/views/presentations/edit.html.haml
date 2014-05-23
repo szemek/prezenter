@@ -1,13 +1,19 @@
 #wrapper
   #content
     %h1= @presentation.name
-    = form_for @presentation do |f|
+    = form_for(@presentation) do |f|
+      .form-group
+        = f.label :name, 'Nazwa'
+        = f.text_field :name, class: 'form-control'
       .tabs
         %a.active{href: "#haml"} Haml
         %a{href: "#css"} CSS
       .areas
         = f.text_area :haml, id: 'haml', class: 'active'
         = f.text_area :css, id: 'css', class: 'hidden'
+      .form-group
+        = f.label :duration, 'Czas trwania (min.)'
+        = f.text_field :duration, class: 'form-control'
       .btn-group
         = f.submit 'Zapisz', class: 'btn btn-primary'
         = link_to 'Wróć do prezentacji', root_path, class: 'btn btn-default'

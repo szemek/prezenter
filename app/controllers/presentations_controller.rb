@@ -45,6 +45,14 @@ class PresentationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_params
-      params.require(:presentation).permit(:name, :username, :html, :css, :haml, :sass)
+      params.require(:presentation).permit(
+        :name,
+        :username,
+        :html,
+        :css,
+        :haml,
+        :sass,
+        :duration
+      )
     end
 end
