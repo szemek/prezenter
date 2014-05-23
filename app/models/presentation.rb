@@ -10,4 +10,5 @@ class Presentation
   field :css, type: String
   field :haml, type: String
   field :sass, type: String
+  field :duration, type: Integer, default: 0
 end
