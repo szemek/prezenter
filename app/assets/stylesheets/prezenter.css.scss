@@ -30,12 +30,12 @@ section {
   }
 }
 
-.info {
+.infobar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 8px;
   z-index: 1;
 
   #progress, #clock {
