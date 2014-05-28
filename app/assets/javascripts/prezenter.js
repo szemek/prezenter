@@ -1,8 +1,8 @@
-function Prezenter(socket, mode){
+function Prezenter(channel, mode){
   var self = this;
 
+  self.channel = channel;
   self.mode = mode;
-  self.socket = socket;
 
   self.prepare = function() {
     var sections = $('section');
@@ -15,7 +15,7 @@ function Prezenter(socket, mode){
     if(self.mode === 'prezenter') {
       var channel = utils.channel();
       var hash = window.location.hash;
-      self.socket.trigger('sync.change', JSON.stringify({channel: channel, hash: hash}));
+      self.channel.trigger('update', JSON.stringify({channel: channel, hash: hash}));
     }
   };
 
@@ -60,7 +60,7 @@ function Prezenter(socket, mode){
 
   self.listen = function(){
     if(self.mode === 'viewer'){
-      self.socket.bind('update', function(message) {
+      self.channel.bind('update', function(message) {
         if($('.fa-eye-slash').length > 0) { return; }
 
         if(message != null && message != "") {
@@ -89,9 +89,10 @@ $(document).ready(function(){
     console.log(object.message);
   });
   socket.trigger('sync.connected');
+  var channel = socket.subscribe(utils.channel());
 
   $("[data-mode='viewer'], [data-mode='prezenter']").each(function(){
-    var prezenter = new Prezenter(socket, this.dataset.mode);
+    var prezenter = new Prezenter(channel, this.dataset.mode);
     prezenter.prepare();
     prezenter.listen();
     prezenter.bind_events();
